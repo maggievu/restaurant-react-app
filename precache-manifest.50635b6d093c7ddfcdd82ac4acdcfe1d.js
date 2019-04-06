@@ -4,19 +4,19 @@ self.__precacheManifest = [
     "url": "/restaurant-react-app/static/js/runtime~main.678a2e08.js"
   },
   {
-    "revision": "95a17bab5c7ecf17edfc",
-    "url": "/restaurant-react-app/static/js/main.058ccf25.chunk.js"
+    "revision": "c73a5054b82c8f0d6f3d",
+    "url": "/restaurant-react-app/static/js/main.5e12cefe.chunk.js"
   },
   {
     "revision": "6dd388828ec49ca28dc9",
     "url": "/restaurant-react-app/static/js/2.efe01d12.chunk.js"
   },
   {
-    "revision": "95a17bab5c7ecf17edfc",
+    "revision": "c73a5054b82c8f0d6f3d",
     "url": "/restaurant-react-app/static/css/main.6618f05f.chunk.css"
   },
   {
-    "revision": "2bfe473e7583a759361b61ec590d7e8d",
+    "revision": "62defc7f07ccafded0e52d7041241af0",
     "url": "/restaurant-react-app/index.html"
   }
 ];
