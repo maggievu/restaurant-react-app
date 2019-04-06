@@ -44,7 +44,7 @@ class App extends Component {
 	// Handles changes from input in text fields
 	handleChange = (event, value) => {
 		this.setState({
-			[event.currentTarget.name]: event.target.value
+			[event.target.name]: event.target.value
 		})
 	}
 
@@ -57,41 +57,53 @@ class App extends Component {
 		const link = `${'https://cors-anywhere.herokuapp.com/'}https://api.yelp.com/v3/businesses/search?term=${term}&location=${location}&categories=${categories}&sort_by=${sortBy}&locale=en_CA`
 		console.log(link)
 
-		await axios.get(
-			link,
-			{
-				headers: {
-					"Authorization": `Bearer ${API_KEY}`
-				}
-			})
-			.then(json => json.data)
-			.then(data => {
-				this.setState({
-					totalResults: data.total,
-					businesses: data.businesses,
-					success: false,
-					error: null
-				})
-			})
-			.catch(error => {
-				this.setState({ error: error.description })
-			})
+		if (location.length > 0 && term.length > 0) {
 
-		if (this.state.totalResults !== 0) {
-			this.setState({
-				success: true,
-			})
-		} else {
-			this.setState({
-				error: `Cound not find any business.`,
-			})
+			await axios.get(
+				link,
+				{
+					headers: {
+						"Authorization": `Bearer ${API_KEY}`
+					}
+				})
+				.then(json => json.data)
+				.then(data => {
+					this.setState({
+						totalResults: data.total,
+						businesses: data.businesses,
+						success: false,
+						error: null
+					})
+				})
+				.catch(error => {
+					this.setState({ error: error.description })
+				})
+
+			if (this.state.totalResults !== 0) {
+				this.setState({
+					success: true,
+				})
+			} else {
+				this.setState({
+					error: `Cound not find any business.`,
+				})
+			}
+
 		}
 
 		if (!term) {
 			this.setState({
-				term: '',
+				location: '',
 				success: false,
 				error: 'Missing a search term!'
+			})
+		}
+
+		if (!location) {
+			this.setState({
+				term: '',
+				success: false,
+				error: 'Missing a location search term!'
 			})
 		}
 

@@ -15,7 +15,7 @@ const styles = {
 
 const Business = (props) => (
 	<Grid className={props.classes.root} container spacing={32}>
-	
+
 		<Grid item md={4}>
 			<img src={props.imageUrl} alt='Poster' />
 		</Grid>
@@ -28,7 +28,7 @@ const Business = (props) => (
 			<p>Rating: {props.rating}</p>
 			<p>Address: {props.address}, {props.city}, {props.zipCode}</p>
 			<p>Phone: {props.phone}</p>
-			<p>Yelp link: {props.url}</p>
+			<p>Click <a href={props.url} target="_blank" rel="noopener noreferrer">here</a> to go to Yelp link</p>
 		</Grid>
 
 	</Grid>
